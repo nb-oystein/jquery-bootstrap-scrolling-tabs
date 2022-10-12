@@ -263,6 +263,9 @@ function ElementsHandler(scrollingTabsControl) {
     };
 
     p.setFixedContainerWidth = function () {
+      // Need to remove style="width: xx px" before recalulating
+      this.stc.$fixedContainer.width("");
+      this.stc.$movableContainer.width("");
       var ehd = this,
           stc = ehd.stc,
           tabsContainerRect = stc.$tabsContainer.get(0).getBoundingClientRect();
